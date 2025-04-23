@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="data:,">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <style>
+        /* Ensure the hidden class works properly */
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Style for cancel button */
+        #cancel-analysis {
+            margin-top: 20px;
+            padding: 8px 16px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">
+                    <h1>BrainScan AI</h1>
+                </div>
+                <ul class="nav-links">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Brain Tumor Detection</h1>
+                    <p>Upload an MRI scan to detect and classify brain tumors using our advanced AI model.</p>
+                    <div class="upload-container">
+                        <form id="upload-form" enctype="multipart/form-data">
+                            <div class="file-input-container">
+                                <input type="file" id="file-input" name="file" accept="image/*">
+                                <label for="file-input" class="file-label">
+                                    <span class="file-icon">📁</span>
+                                    <span class="file-text">Choose MRI Scan</span>
+                                </label>
+                            </div>
+                            <button type="submit" id="analyze-btn" disabled>Analyze Scan</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section id="results" class="hidden">
+                <div class="results-container">
+                    <h2>Analysis Results</h2>
+                    <div class="result-content">
+                        <div class="image-container">
+                            <img id="result-image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="Uploaded MRI Scan">
+                        </div>
+                        <div class="result-details">
+                            <div class="diagnosis">
+                                <h3>Diagnosis:</h3>
+                                <p id="diagnosis-text"></p>
+                                <div class="confidence">
+                                    <span>Confidence:</span>
+                                    <div class="progress-bar">
+                                        <div id="confidence-bar"></div>
+                                    </div>
+                                    <span id="confidence-text"></span>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="probability-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <h2>Key Features</h2>
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h3>Advanced AI Model</h3>
+                        <p>Powered by a deep learning model trained on thousands of MRI scans.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3>Multi-Class Detection</h3>
+                        <p>Detects multiple tumor types: Glioma, Meningioma, and Pituitary.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Detailed Analysis</h3>
+                        <p>Provides confidence scores and probability distribution for each class.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 BrainScan AI. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <div id="loading-overlay" class="hidden">
+        <div class="spinner"></div>
+        <p>Analyzing MRI scan...</p>
+        <button id="cancel-analysis">Cancel</button>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    
+    <script>
+        // Force hide loading overlay after 10 seconds as a fallback
+        setTimeout(function() {
+            const loadingOverlay = document.getElementById("loading-overlay");
+            if (loadingOverlay) {
+                loadingOverlay.classList.add("hidden");
+                console.log("Loading overlay force-hidden by timeout");
+            }
+        }, 10000);
+        
+        // Add event listener to cancel button
+        document.getElementById('cancel-analysis').addEventListener('click', function() {
+            const loadingOverlay = document.getElementById("loading-overlay");
+            if (loadingOverlay) {
+                loadingOverlay.classList.add("hidden");
+                console.log("Loading overlay hidden by cancel button");
+            }
+        });
+        
+        // Force hide loading overlay on page load
+        window.onload = function() {
+            const loadingOverlay = document.getElementById("loading-overlay");
+            if (loadingOverlay) {
+                loadingOverlay.classList.add("hidden");
+                console.log("Loading overlay hidden on page load");
+            }
+        };
+        
+        // Add escape key handler
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const loadingOverlay = document.getElementById("loading-overlay");
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add("hidden");
+                    console.log("Loading overlay hidden by Escape key");
+                }
+            }
+        });
+    </script>
+</body>
+</html>

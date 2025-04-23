@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Brain Tumor Detection</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">
+                    <h1>BrainScan AI</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li class="active"><a href="/about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="about-section">
+                <h1>About BrainScan AI</h1>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Our Mission</h2>
+                        <p>BrainScan AI aims to assist medical professionals in the early detection and classification of brain tumors using advanced deep learning techniques. Our tool is designed to be a supportive aid in the diagnostic process, providing quick preliminary analysis of MRI scans.</p>
+                        
+                        <h2>The Technology</h2>
+                        <p>Our system uses a convolutional neural network based on the VGG16 architecture, fine-tuned on a dataset of brain MRI scans. The model can detect and classify three types of brain tumors:</p>
+                        <ul>
+                            <li><strong>Glioma:</strong> A type of tumor that occurs in the brain and spinal cord.</li>
+                            <li><strong>Meningioma:</strong> A tumor that forms on membranes that cover the brain and spinal cord.</li>
+                            <li><strong>Pituitary:</strong> A tumor that forms in the pituitary gland at the base of the brain.</li>
+                        </ul>
+                        <p>The system also identifies scans with no tumor present.</p>
+                        
+                        <h2>Model Performance</h2>
+                        <p>Our model achieves over 93% accuracy on test data, with high precision and recall across all tumor classes. The system provides confidence scores and probability distributions to help medical professionals make informed decisions.</p>
+                        
+                        <h2>Disclaimer</h2>
+                        <p>This tool is intended for research and educational purposes only. It should not be used as the sole basis for medical diagnosis. Always consult with qualified healthcare professionals for proper medical advice and diagnosis.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="/static/images/brain-scan.jpg" alt="Brain MRI Scan" onerror="this.src='/placeholder.svg?height=300&width=400'">
