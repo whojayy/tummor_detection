@@ -76,3 +76,34 @@ The system also identifies scans with no tumor present.
 - Responsive design for all devices
 - Dashboard with model performance metrics
 
+## Machine Learning Approach
+
+### Model Architecture
+
+Our brain tumor detection system uses a transfer learning approach based on the VGG16 architecture, which has been pre-trained on the ImageNet dataset. This approach allows us to leverage the feature extraction capabilities of a proven CNN architecture while adapting it to our specific medical imaging task.
+
+#### Transfer Learning Implementation
+
+```python
+# Base model with pre-trained weights
+base_model = VGG16(input_shape=(IMAGE_SIZE, IMAGE_SIZE, 3),
+                  include_top=False, weights='imagenet')
+
+# Freeze most layers to preserve learned features
+for layer in base_model.layers:
+    layer.trainable = False
+    
+# Selectively unfreeze the last few layers for fine-tuning
+base_model.layers[-2].trainable = True
+base_model.layers[-3].trainable = True
+base_model.layers[-4].trainable = True
+
+# Build the final model with custom classification layers
+model = Sequential()
+model.add(Input(shape=(IMAGE_SIZE, IMAGE_SIZE, 3)))
+model.add(base_model)
+model.add(Flatten())
+model.add(Dropout(0.3))  # Regularization to prevent overfitting
+model.add(Dense(128, activation='relu'))
+model.add(Dropout(0.2))
+model.add(Dense(4, activation='softmax'))  # 4 classes: glioma, meningioma, notumor, pituitary
