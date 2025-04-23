@@ -63,7 +63,7 @@ The confusion matrix and performance metrics show strong results across all tumo
   <img src="./websit_layout/AboutUs.png" width="800" alt="About Page">
 </p>
 
-### My Mission
+### Our Mission
 
 BrainScan AI aims to assist medical professionals in the early detection and classification of brain tumors using advanced deep learning techniques. Our tool is designed to be a supportive aid in the diagnostic process, providing quick preliminary analysis of MRI scans.
 
