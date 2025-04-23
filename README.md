@@ -2,6 +2,14 @@
 
 This is a Flask-based web application for detecting and classifying brain tumors from MRI scans using a deep learning model.
 
+## Machine Learning Approach
+
+### Model Architecture
+
+Here I am trying to solve the multi class (4 classes) classification problem in the domain of computer vision by trainning VGG16.
+
+
+
 ## Project Structure
 
 <p align="center">
@@ -24,7 +32,7 @@ The application features a clean, user-friendly interface for uploading and anal
   <img src="./websit_layout/Home2.png" width="800" alt="Key Features">
 </p>
 
-Our application offers three key capabilities:
+My application offers three key capabilities:
 - **Advanced AI Model**: Powered by a deep learning model trained on thousands of MRI scans
 - **Multi-Class Detection**: Detects multiple tumor types: Glioma, Meningioma, and Pituitary
 - **Detailed Analysis**: Provides confidence scores and probability distribution for each class
@@ -61,7 +69,7 @@ BrainScan AI aims to assist medical professionals in the early detection and cla
 
 ### The Technology
 
-Our system uses a convolutional neural network based on the VGG16 architecture, fine-tuned on a dataset of brain MRI scans. The model can detect and classify three types of brain tumors:
+My system uses a convolutional neural network based on the VGG16 architecture, fine-tuned on a dataset of brain MRI scans. The model can detect and classify three types of brain tumors:
 - **Glioma**: A type of tumor that occurs in the brain and spinal cord.
 - **Meningioma**: A tumor that forms on membranes that cover the brain and spinal cord.
 - **Pituitary**: A tumor that forms in the pituitary gland at the base of the brain.
@@ -76,34 +84,3 @@ The system also identifies scans with no tumor present.
 - Responsive design for all devices
 - Dashboard with model performance metrics
 
-## Machine Learning Approach
-
-### Model Architecture
-
-Our brain tumor detection system uses a transfer learning approach based on the VGG16 architecture, which has been pre-trained on the ImageNet dataset. This approach allows us to leverage the feature extraction capabilities of a proven CNN architecture while adapting it to our specific medical imaging task.
-
-#### Transfer Learning Implementation
-
-```python
-# Base model with pre-trained weights
-base_model = VGG16(input_shape=(IMAGE_SIZE, IMAGE_SIZE, 3),
-                  include_top=False, weights='imagenet')
-
-# Freeze most layers to preserve learned features
-for layer in base_model.layers:
-    layer.trainable = False
-    
-# Selectively unfreeze the last few layers for fine-tuning
-base_model.layers[-2].trainable = True
-base_model.layers[-3].trainable = True
-base_model.layers[-4].trainable = True
-
-# Build the final model with custom classification layers
-model = Sequential()
-model.add(Input(shape=(IMAGE_SIZE, IMAGE_SIZE, 3)))
-model.add(base_model)
-model.add(Flatten())
-model.add(Dropout(0.3))  # Regularization to prevent overfitting
-model.add(Dense(128, activation='relu'))
-model.add(Dropout(0.2))
-model.add(Dense(4, activation='softmax'))  # 4 classes: glioma, meningioma, notumor, pituitary
