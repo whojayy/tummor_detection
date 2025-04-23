@@ -36,8 +36,8 @@ uploads/*
 # Data folder (exclude training and testing datasets)
 data/
 
-# Large model files (consider using Git LFS for these)
-# models/*.h5
+# Add this line to your .gitignore file
+models/model.h5
 
 # OS specific
 .DS_Store
