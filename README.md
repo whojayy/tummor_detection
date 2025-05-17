@@ -8,7 +8,13 @@ This is a Flask-based web application for detecting and classifying brain tumors
 
 Here I am trying to solve the multi class (4 classes) classification problem in the domain of computer vision by trainning VGG16.
 
+## Analyzed O/P
 
+<p align="center">
+  <img src="./websit_layout/Analyzed.png.jpeg" width="800" alt="Project Structure">
+</p>
+
+Analyzed Image with the probablity score as per the classes
 
 ## Project Structure
 
