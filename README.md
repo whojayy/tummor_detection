@@ -10,11 +10,13 @@ Here I am trying to solve the multi class (4 classes) classification problem in 
 
 ## Analyzed O/P
 
+Analyzed Image with the confidence score as per the classes
+
 <p align="center">
   <img src="./websit_layout/Analyzed.png.jpeg" width="800" alt="Project Structure">
 </p>
 
-Analyzed Image with the probablity score as per the classes
+
 
 ## Project Structure
 
