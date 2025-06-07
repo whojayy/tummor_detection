@@ -56,7 +56,7 @@ The model achieves 93.2% overall accuracy on the test dataset, with performance 
 
 ### Detailed Evaluation
 <p align="center">
-  <img src="./Eva.png" width="800" alt="Model Evaluation Metrics">
+  <img src="./websit_layout/Evoluation.jpg" width="800" alt="Model Evaluation Metrics">
 </p>
 
 The confusion matrix and performance metrics show strong results across all tumor classes:
@@ -69,7 +69,7 @@ The confusion matrix and performance metrics show strong results across all tumo
 
 
 <p align="center">
-  <img src="./websit_layout/AboutUS.png" width="800" alt="About Us">
+  <img src="./websit_layout/AboutUS.jpg" width="800" alt="About Us">
 </p>
 
 ### My Mission
