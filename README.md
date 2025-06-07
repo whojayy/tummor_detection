@@ -69,7 +69,7 @@ The confusion matrix and performance metrics show strong results across all tumo
 
 
 <p align="center">
-  <img src="./websit_layout/AboutUS.jpg" width="800" alt="About Us">
+  <img src="./websit_layout/About.jpg" width="800" alt="About">
 </p>
 
 ### My Mission
