@@ -36,8 +36,6 @@
   
   /* Header & Navigation */
   header {
-    background-color: var(--card-color);
-    box-shadow: var(--shadow);
     position: sticky;
     top: 0;
     z-index: 100;
